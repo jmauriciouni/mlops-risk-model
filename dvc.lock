@@ -1,0 +1,55 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python3 -m src.data_prep
+    deps:
+    - path: data/raw/credit_risk.csv
+      hash: md5
+      md5: 801d6b24625fac942c97c11485ab8e51
+      size: 1615322
+      isexec: true
+    - path: src/data_prep.py
+      hash: md5
+      md5: f3aa2b7fa1c8eb9f235a6e4e67fe9e49
+      size: 915
+      isexec: true
+    outs:
+    - path: data/processed/train.csv
+      hash: md5
+      md5: 8be7dd565ebc9be6f7e282ac7ab4c5d0
+      size: 1292120
+      isexec: true
+    - path: data/processed/valid.csv
+      hash: md5
+      md5: 29b53fdd3eb50b0ad1493cfe8002df98
+      size: 323464
+      isexec: true
+  train:
+    cmd: python3 -m src.train
+    deps:
+    - path: data/processed/train.csv
+      hash: md5
+      md5: 8be7dd565ebc9be6f7e282ac7ab4c5d0
+      size: 1292120
+      isexec: true
+    - path: data/processed/valid.csv
+      hash: md5
+      md5: 29b53fdd3eb50b0ad1493cfe8002df98
+      size: 323464
+      isexec: true
+    - path: src/model_utils.py
+      hash: md5
+      md5: ef95e4631a380c3b76344f32039c07cc
+      size: 1744
+      isexec: true
+    - path: src/train.py
+      hash: md5
+      md5: e425fa75e48d35913def836150c6b2d4
+      size: 2746
+      isexec: true
+    outs:
+    - path: models/model-latest.pkl
+      hash: md5
+      md5: 5233ae70a18dc1de179855e43d327777
+      size: 5514
+      isexec: true
