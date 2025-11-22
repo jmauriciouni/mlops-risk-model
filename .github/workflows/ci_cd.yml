@@ -46,10 +46,12 @@ jobs:
 
       # 6) TESTS (CI clásico)
       - name: Run tests (pytest)
+        env:
+          PYTHONPATH: ${{ github.workspace }}
         run: |
-          pytest -q
+          python -m pytest -q
 
-      # 9) DEPLOY a Hugging Face Spaces (simulación de "producción")
+      # 7) DEPLOY a Hugging Face Spaces (simulación de "producción")
       - name: Deploy to Hugging Face Space
         if: success()
         env:
