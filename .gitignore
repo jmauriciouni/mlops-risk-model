@@ -212,3 +212,11 @@ mlruns/
 
 # DVC Storage
 dvc_storage/
+
+
+__pycache__/
+*.pyc
+mlruns/
+.dvc/
+.env
+.venv/

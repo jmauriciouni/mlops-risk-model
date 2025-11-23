@@ -20,3 +20,9 @@ TARGET_COLUMN = "default_90d"
 MLFLOW_DIR = BASE_DIR / "mlruns"
 MLFLOW_TRACKING_URI = f"file://{MLFLOW_DIR}"
 MLFLOW_EXPERIMENT_NAME = "credit_risk_baseline"
+
+# --- Métricas y datos de producción ---
+METRICS_DIR = BASE_DIR / "metrics"
+BASELINE_METRICS_PATH = METRICS_DIR / "baseline_metrics.json"
+PRODUCTION_DATA_DIR = DATA_DIR / "production"
+PRODUCTION_DATA_PATH = PRODUCTION_DATA_DIR / "production_batch.csv"
